@@ -13,34 +13,47 @@
 </head>
 <body>
 
-<a class="skip-link" href="#main">Langsung ke konten</a>
+<!--
+  DUA BAHASA: teks Indonesia ada langsung di halaman ini.
+  Terjemahan bahasa Inggris ada di assets/js/lang.js, dengan kunci yang sama
+  seperti atribut data-i18n di bawah. Bila mengubah teks di sini, ubah juga
+  terjemahannya di lang.js.
+-->
+
+<a class="skip-link" href="#main" data-i18n="skip">Langsung ke konten</a>
 
 <!-- ============ HEADER ============ -->
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="#top" aria-label="Beranda Notaris & PPAT Cosmas Dimas Darmoyo Danisworo">
+    <a class="brand" href="#top" aria-label="Notaris & PPAT Cosmas Dimas Darmoyo Danisworo">
       <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
         <circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="2"/>
         <circle cx="20" cy="20" r="12.5" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2.2"/>
         <path d="M13 23.5h14M15 19.5h10M20 12.5v7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
-      <span>Notaris &amp; PPAT<small>Cosmas Dimas Darmoyo Danisworo, S.H., M.Kn.</small></span>
+      <span><span data-i18n="brand">Notaris &amp; PPAT</span><small>Cosmas Dimas Darmoyo Danisworo, S.H., M.Kn.</small></span>
     </a>
 
-    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
-      <span class="sr-only">Menu</span>
-      <span class="bars" aria-hidden="true"></span>
-    </button>
+    <div class="header-tools">
+      <div class="lang-switch" role="group" aria-label="Bahasa / Language" data-lang-switch>
+        <button type="button" data-lang="id" aria-pressed="true" lang="id">ID</button>
+        <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only" data-i18n="menu">Menu</span>
+        <span class="bars" aria-hidden="true"></span>
+      </button>
+    </div>
 
-    <nav id="site-nav" class="site-nav" aria-label="Utama">
+    <nav id="site-nav" class="site-nav" aria-label="Menu">
       <ul>
-        <li><a href="#layanan">Layanan</a></li>
-        <li><a href="#persyaratan">Persyaratan</a></li>
-        <li><a href="#alur">Alur</a></li>
-        <li><a href="#kantor">Kantor</a></li>
-        <li><a href="#tanya-jawab">Tanya jawab</a></li>
+        <li><a href="#layanan" data-i18n="nav.services">Layanan</a></li>
+        <li><a href="#persyaratan" data-i18n="nav.req">Persyaratan</a></li>
+        <li><a href="#alur" data-i18n="nav.process">Alur</a></li>
+        <li><a href="#kantor" data-i18n="nav.office">Kantor</a></li>
+        <li><a href="#tanya-jawab" data-i18n="nav.faq">Tanya jawab</a></li>
       </ul>
-      <a class="btn btn-primary" href="#janji">Buat janji temu</a>
+      <a class="btn btn-primary" href="#janji" data-i18n="cta.book">Buat janji temu</a>
     </nav>
   </div>
 </header>
@@ -51,17 +64,17 @@
 <section class="hero" id="top">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="role">Notaris &amp; Pejabat Pembuat Akta Tanah</p>
+      <p class="role" data-i18n="hero.role">Notaris &amp; Pejabat Pembuat Akta Tanah</p>
       <h1>Cosmas Dimas Darmoyo Danisworo, S.H., M.Kn.</h1>
-      <p class="lead">Pembuatan akta autentik, akta pertanahan, dan legalisasi dokumen di [Kota/Kabupaten]. Silakan buat janji temu agar kami dapat menyiapkan waktu dan memeriksa kelengkapan dokumen Anda.</p>
+      <p class="lead" data-i18n="hero.lead">Pembuatan akta autentik, akta pertanahan, dan legalisasi dokumen di <span data-city>[Kota/Kabupaten]</span>. Silakan buat janji temu agar kami dapat menyiapkan waktu dan memeriksa kelengkapan dokumen Anda.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary btn-lg" href="#janji">Buat janji temu</a>
-        <a class="btn btn-ghost btn-lg" href="#persyaratan">Cek persyaratan dokumen</a>
+        <a class="btn btn-primary btn-lg" href="#janji" data-i18n="cta.book">Buat janji temu</a>
+        <a class="btn btn-ghost btn-lg" href="#persyaratan" data-i18n="cta.req">Cek persyaratan dokumen</a>
       </div>
     </div>
 
     <div class="hero-seal">
-      <!-- Signature element: the notarial seal. Edit the circular text below if needed. -->
+      <!-- Cap notaris. Teks melingkar sengaja tetap berbahasa Indonesia (nama jabatan resmi). -->
       <svg class="seal" viewBox="0 0 300 300" role="img" aria-label="Cap Notaris dan PPAT Cosmas Dimas Darmoyo Danisworo">
         <defs>
           <path id="ring" d="M150 150 m-112 0 a112 112 0 1 1 224 0 a112 112 0 1 1 -224 0"/>
@@ -77,9 +90,9 @@
       </svg>
 
       <aside class="hours-card" data-hours>
-        <p class="status"><span class="dot"></span><span data-status>Memeriksa jam kantor…</span></p>
+        <p class="status"><span class="dot"></span><span data-status></span></p>
         <p class="hours-line" data-today></p>
-        <a href="#kantor">Lihat jam kantor</a>
+        <a href="#kantor" data-i18n="hours.link">Lihat jam kantor</a>
       </aside>
     </div>
   </div>
@@ -89,123 +102,123 @@
 <section class="section" id="layanan">
   <div class="wrap">
     <header class="section-head">
-      <h2>Layanan</h2>
-      <p>Akta dibuat di hadapan Notaris atau PPAT sesuai kewenangan jabatan masing-masing. Hubungi kami bila keperluan Anda tidak tercantum di sini.</p>
+      <h2 data-i18n="svc.title">Layanan</h2>
+      <p data-i18n="svc.intro">Akta dibuat di hadapan Notaris atau PPAT sesuai kewenangan jabatan masing-masing. Hubungi kami bila keperluan Anda tidak tercantum di sini.</p>
     </header>
 
     <div class="services">
       <div class="service-group">
-        <h3>Kenotariatan</h3>
+        <h3 data-i18n="svc.notary">Kenotariatan</h3>
         <ul>
-          <li><strong>Pendirian badan usaha dan badan hukum</strong><span>PT, CV, firma, yayasan, perkumpulan, dan koperasi.</span></li>
-          <li><strong>Perubahan anggaran dasar dan data perseroan</strong><span>Pengurus, pemegang saham, modal, nama, dan kedudukan.</span></li>
-          <li><strong>Perjanjian</strong><span>Sewa-menyewa, kerja sama, utang-piutang, pengikatan jual beli, dan perjanjian lain.</span></li>
-          <li><strong>Jaminan fidusia</strong><span>Akta jaminan fidusia dan pendaftarannya.</span></li>
-          <li><strong>Wasiat, kuasa, dan pernyataan</strong><span>Akta wasiat, surat kuasa, dan akta pernyataan.</span></li>
-          <li><strong>Legalisasi dan waarmerking</strong><span>Pengesahan tanda tangan dan pendaftaran surat di bawah tangan, serta salinan dokumen.</span></li>
+          <li><strong data-i18n="svc.n1">Pendirian badan usaha dan badan hukum</strong><span data-i18n="svc.n1d">PT, CV, firma, yayasan, perkumpulan, dan koperasi.</span></li>
+          <li><strong data-i18n="svc.n2">Perubahan anggaran dasar dan data perseroan</strong><span data-i18n="svc.n2d">Pengurus, pemegang saham, modal, nama, dan kedudukan.</span></li>
+          <li><strong data-i18n="svc.n3">Perjanjian</strong><span data-i18n="svc.n3d">Sewa-menyewa, kerja sama, utang-piutang, pengikatan jual beli, dan perjanjian lain.</span></li>
+          <li><strong data-i18n="svc.n4">Jaminan fidusia</strong><span data-i18n="svc.n4d">Akta jaminan fidusia dan pendaftarannya.</span></li>
+          <li><strong data-i18n="svc.n5">Wasiat, kuasa, dan pernyataan</strong><span data-i18n="svc.n5d">Akta wasiat, surat kuasa, dan akta pernyataan.</span></li>
+          <li><strong data-i18n="svc.n6">Legalisasi dan waarmerking</strong><span data-i18n="svc.n6d">Pengesahan tanda tangan dan pendaftaran surat di bawah tangan, serta salinan dokumen.</span></li>
         </ul>
       </div>
       <div class="service-group">
-        <h3>Pertanahan (PPAT)</h3>
+        <h3 data-i18n="svc.land">Pertanahan (PPAT)</h3>
         <ul>
-          <li><strong>Akta Jual Beli (AJB)</strong><span>Peralihan hak atas tanah dan bangunan melalui jual beli.</span></li>
-          <li><strong>Akta Hibah</strong><span>Pemberian hak atas tanah dan bangunan, termasuk kepada anggota keluarga.</span></li>
-          <li><strong>Akta Tukar Menukar</strong><span>Pertukaran hak atas tanah antara para pihak.</span></li>
-          <li><strong>Akta Pembagian Hak Bersama (APHB)</strong><span>Pembagian hak atas tanah milik bersama, misalnya setelah pewarisan.</span></li>
-          <li><strong>Pemasukan ke dalam perusahaan (inbreng)</strong><span>Tanah atau bangunan sebagai penyertaan modal.</span></li>
-          <li><strong>Hak Tanggungan (APHT/SKMHT)</strong><span>Pembebanan hak tanggungan untuk keperluan kredit.</span></li>
+          <li><strong data-i18n="svc.l1">Akta Jual Beli (AJB)</strong><span data-i18n="svc.l1d">Peralihan hak atas tanah dan bangunan melalui jual beli.</span></li>
+          <li><strong data-i18n="svc.l2">Akta Hibah</strong><span data-i18n="svc.l2d">Pemberian hak atas tanah dan bangunan, termasuk kepada anggota keluarga.</span></li>
+          <li><strong data-i18n="svc.l3">Akta Tukar Menukar</strong><span data-i18n="svc.l3d">Pertukaran hak atas tanah antara para pihak.</span></li>
+          <li><strong data-i18n="svc.l4">Akta Pembagian Hak Bersama (APHB)</strong><span data-i18n="svc.l4d">Pembagian hak atas tanah milik bersama, misalnya setelah pewarisan.</span></li>
+          <li><strong data-i18n="svc.l5">Pemasukan ke dalam perusahaan (inbreng)</strong><span data-i18n="svc.l5d">Tanah atau bangunan sebagai penyertaan modal.</span></li>
+          <li><strong data-i18n="svc.l6">Hak Tanggungan (APHT/SKMHT)</strong><span data-i18n="svc.l6d">Pembebanan hak tanggungan untuk keperluan kredit.</span></li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ PERSYARATAN (interactive) ============ -->
+<!-- ============ PERSYARATAN ============ -->
 <section class="section section-tint" id="persyaratan">
   <div class="wrap">
     <header class="section-head">
-      <h2>Persyaratan dokumen</h2>
-      <p>Pilih jenis keperluan untuk melihat dokumen yang biasanya diperlukan. Bawa dokumen asli beserta fotokopinya saat konsultasi.</p>
+      <h2 data-i18n="req.title">Persyaratan dokumen</h2>
+      <p data-i18n="req.intro">Pilih jenis keperluan untuk melihat dokumen yang biasanya diperlukan. Bawa dokumen asli beserta fotokopinya saat konsultasi.</p>
     </header>
 
     <div class="req">
       <div class="req-tabs" role="tablist" aria-label="Jenis keperluan">
-        <button role="tab" id="tab-pt" aria-controls="panel-pt" aria-selected="true">Pendirian PT</button>
-        <button role="tab" id="tab-ajb" aria-controls="panel-ajb" aria-selected="false" tabindex="-1">Jual beli tanah (AJB)</button>
-        <button role="tab" id="tab-hibah" aria-controls="panel-hibah" aria-selected="false" tabindex="-1">Hibah</button>
-        <button role="tab" id="tab-waris" aria-controls="panel-waris" aria-selected="false" tabindex="-1">Pembagian waris (APHB)</button>
+        <button role="tab" id="tab-pt" aria-controls="panel-pt" aria-selected="true" data-i18n="req.t1">Pendirian PT</button>
+        <button role="tab" id="tab-ajb" aria-controls="panel-ajb" aria-selected="false" tabindex="-1" data-i18n="req.t2">Jual beli tanah (AJB)</button>
+        <button role="tab" id="tab-hibah" aria-controls="panel-hibah" aria-selected="false" tabindex="-1" data-i18n="req.t3">Hibah</button>
+        <button role="tab" id="tab-waris" aria-controls="panel-waris" aria-selected="false" tabindex="-1" data-i18n="req.t4">Pembagian waris (APHB)</button>
       </div>
 
       <div class="req-panel" role="tabpanel" id="panel-pt" aria-labelledby="tab-pt">
         <ul class="checklist">
-          <li>KTP dan NPWP seluruh pendiri, direksi, dan komisaris</li>
-          <li>Usulan nama perseroan (siapkan beberapa alternatif)</li>
-          <li>Maksud dan tujuan kegiatan usaha (KBLI)</li>
-          <li>Besar modal dasar dan modal disetor, serta pembagian saham</li>
-          <li>Alamat lengkap kedudukan perseroan</li>
-          <li>Nomor telepon dan email perseroan</li>
+          <li data-i18n="req.pt1">KTP dan NPWP seluruh pendiri, direksi, dan komisaris</li>
+          <li data-i18n="req.pt2">Usulan nama perseroan (siapkan beberapa alternatif)</li>
+          <li data-i18n="req.pt3">Maksud dan tujuan kegiatan usaha (KBLI)</li>
+          <li data-i18n="req.pt4">Besar modal dasar dan modal disetor, serta pembagian saham</li>
+          <li data-i18n="req.pt5">Alamat lengkap kedudukan perseroan</li>
+          <li data-i18n="req.pt6">Nomor telepon dan email perseroan</li>
         </ul>
       </div>
       <div class="req-panel" role="tabpanel" id="panel-ajb" aria-labelledby="tab-ajb" hidden>
         <ul class="checklist">
-          <li>Sertipikat hak atas tanah asli</li>
-          <li>KTP dan Kartu Keluarga penjual dan pembeli</li>
-          <li>NPWP penjual dan pembeli</li>
-          <li>Buku nikah, atau persetujuan suami/istri penjual</li>
-          <li>SPPT PBB tahun berjalan dan bukti pelunasannya</li>
-          <li>PBG/IMB bangunan, bila ada</li>
+          <li data-i18n="req.cert">Sertipikat hak atas tanah asli</li>
+          <li data-i18n="req.ajb2">KTP dan Kartu Keluarga penjual dan pembeli</li>
+          <li data-i18n="req.ajb3">NPWP penjual dan pembeli</li>
+          <li data-i18n="req.ajb4">Buku nikah, atau persetujuan suami/istri penjual</li>
+          <li data-i18n="req.pbb">SPPT PBB tahun berjalan dan bukti pelunasannya</li>
+          <li data-i18n="req.ajb6">PBG/IMB bangunan, bila ada</li>
         </ul>
       </div>
       <div class="req-panel" role="tabpanel" id="panel-hibah" aria-labelledby="tab-hibah" hidden>
         <ul class="checklist">
-          <li>Sertipikat hak atas tanah asli</li>
-          <li>KTP dan Kartu Keluarga pemberi dan penerima hibah</li>
-          <li>NPWP pemberi dan penerima hibah</li>
-          <li>Buku nikah, atau persetujuan suami/istri pemberi hibah</li>
-          <li>Dokumen yang menunjukkan hubungan keluarga, bila hibah antaranggota keluarga</li>
-          <li>SPPT PBB tahun berjalan dan bukti pelunasannya</li>
+          <li data-i18n="req.cert">Sertipikat hak atas tanah asli</li>
+          <li data-i18n="req.h2">KTP dan Kartu Keluarga pemberi dan penerima hibah</li>
+          <li data-i18n="req.h3">NPWP pemberi dan penerima hibah</li>
+          <li data-i18n="req.h4">Buku nikah, atau persetujuan suami/istri pemberi hibah</li>
+          <li data-i18n="req.h5">Dokumen yang menunjukkan hubungan keluarga, bila hibah antaranggota keluarga</li>
+          <li data-i18n="req.pbb">SPPT PBB tahun berjalan dan bukti pelunasannya</li>
         </ul>
       </div>
       <div class="req-panel" role="tabpanel" id="panel-waris" aria-labelledby="tab-waris" hidden>
         <ul class="checklist">
-          <li>Sertipikat hak atas tanah asli</li>
-          <li>Akta kematian pewaris</li>
-          <li>Surat keterangan waris</li>
-          <li>KTP, Kartu Keluarga, dan NPWP seluruh ahli waris</li>
-          <li>Buku nikah pewaris dan akta kelahiran ahli waris</li>
-          <li>SPPT PBB tahun berjalan dan bukti pelunasannya</li>
+          <li data-i18n="req.cert">Sertipikat hak atas tanah asli</li>
+          <li data-i18n="req.w2">Akta kematian pewaris</li>
+          <li data-i18n="req.w3">Surat keterangan waris</li>
+          <li data-i18n="req.w4">KTP, Kartu Keluarga, dan NPWP seluruh ahli waris</li>
+          <li data-i18n="req.w5">Buku nikah pewaris dan akta kelahiran ahli waris</li>
+          <li data-i18n="req.pbb">SPPT PBB tahun berjalan dan bukti pelunasannya</li>
         </ul>
       </div>
 
-      <p class="req-note">Daftar ini bersifat umum. Dokumen yang diperlukan dapat berbeda untuk setiap perkara; kantor akan mengonfirmasi kelengkapannya saat konsultasi.</p>
+      <p class="req-note" data-i18n="req.note">Daftar ini bersifat umum. Dokumen yang diperlukan dapat berbeda untuk setiap perkara; kantor akan mengonfirmasi kelengkapannya saat konsultasi.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ ALUR (a real sequence) ============ -->
+<!-- ============ ALUR ============ -->
 <section class="section" id="alur">
   <div class="wrap">
     <header class="section-head">
-      <h2>Alur layanan</h2>
-      <p>Dari janji temu hingga akta selesai.</p>
+      <h2 data-i18n="flow.title">Alur layanan</h2>
+      <p data-i18n="flow.intro">Dari janji temu hingga akta selesai.</p>
     </header>
 
     <ol class="steps">
       <li>
-        <h3>Buat janji temu</h3>
-        <p>Isi formulir di bawah atau hubungi kantor. Kami akan mengonfirmasi tanggal dan jam kedatangan Anda.</p>
+        <h3 data-i18n="flow.s1">Buat janji temu</h3>
+        <p data-i18n="flow.s1d">Isi formulir di bawah atau hubungi kantor. Kami akan mengonfirmasi tanggal dan jam kedatangan Anda.</p>
       </li>
       <li>
-        <h3>Konsultasi dan pemeriksaan dokumen</h3>
-        <p>Kami menjelaskan prosedur, memeriksa dokumen, dan menyampaikan honorarium serta biaya resmi yang berlaku sebelum akta dibuat.</p>
+        <h3 data-i18n="flow.s2">Konsultasi dan pemeriksaan dokumen</h3>
+        <p data-i18n="flow.s2d">Kami menjelaskan prosedur, memeriksa dokumen, dan menyampaikan honorarium serta biaya resmi yang berlaku sebelum akta dibuat.</p>
       </li>
       <li>
-        <h3>Penandatanganan akta</h3>
-        <p>Akta dibacakan dan ditandatangani oleh para pihak dan saksi di hadapan Notaris atau PPAT.</p>
+        <h3 data-i18n="flow.s3">Penandatanganan akta</h3>
+        <p data-i18n="flow.s3d">Akta dibacakan dan ditandatangani oleh para pihak dan saksi di hadapan Notaris atau PPAT.</p>
       </li>
       <li>
-        <h3>Penyerahan salinan dan pendaftaran</h3>
-        <p>Salinan akta diserahkan kepada para pihak. Untuk akta tertentu, kami melanjutkan pendaftaran ke instansi terkait.</p>
+        <h3 data-i18n="flow.s4">Penyerahan salinan dan pendaftaran</h3>
+        <p data-i18n="flow.s4d">Salinan akta diserahkan kepada para pihak. Untuk akta tertentu, kami melanjutkan pendaftaran ke instansi terkait.</p>
       </li>
     </ol>
   </div>
@@ -215,61 +228,65 @@
 <section class="section section-ink" id="kantor">
   <div class="wrap office-grid">
     <div class="profile">
-      <h2>Profil</h2>
+      <h2 data-i18n="prof.title">Profil</h2>
       <dl class="credentials">
-        <div><dt>Nama</dt><dd>Cosmas Dimas Darmoyo Danisworo, S.H., M.Kn.</dd></div>
-        <div><dt>Jabatan</dt><dd>Notaris dan Pejabat Pembuat Akta Tanah</dd></div>
-        <div><dt>Kedudukan Notaris</dt><dd>[Kota/Kabupaten]</dd></div>
-        <div><dt>SK Pengangkatan Notaris</dt><dd>[Nomor SK Menteri Hukum]</dd></div>
-        <div><dt>Daerah kerja PPAT</dt><dd>[Kota/Kabupaten]</dd></div>
-        <div><dt>SK Pengangkatan PPAT</dt><dd>[Nomor SK Menteri ATR/Kepala BPN]</dd></div>
+        <div><dt data-i18n="prof.name">Nama</dt><dd>Cosmas Dimas Darmoyo Danisworo, S.H., M.Kn.</dd></div>
+        <div><dt data-i18n="prof.pos">Jabatan</dt><dd data-i18n="prof.posv">Notaris dan Pejabat Pembuat Akta Tanah</dd></div>
+        <div><dt data-i18n="prof.seat">Kedudukan Notaris</dt><dd><span data-city>[Kota/Kabupaten]</span></dd></div>
+        <div><dt data-i18n="prof.skn">SK Pengangkatan Notaris</dt><dd>[Nomor SK Menteri Hukum]</dd></div>
+        <div><dt data-i18n="prof.area">Daerah kerja PPAT</dt><dd><span data-city>[Kota/Kabupaten]</span></dd></div>
+        <div><dt data-i18n="prof.skp">SK Pengangkatan PPAT</dt><dd>[Nomor SK Menteri ATR/Kepala BPN]</dd></div>
       </dl>
     </div>
 
     <div class="office">
-      <h2>Kantor</h2>
+      <h2 data-i18n="off.title">Kantor</h2>
       <dl class="contact">
-        <div><dt>Alamat</dt><dd>[Alamat lengkap kantor]<br>[Kota], [Kode pos]</dd></div>
-        <div><dt>Telepon</dt><dd><a href="tel:+620000000000">[Nomor telepon kantor]</a></dd></div>
+        <div><dt data-i18n="off.addr">Alamat</dt><dd>[Alamat lengkap kantor]<br>[Kota], [Kode pos]</dd></div>
+        <div><dt data-i18n="off.phone">Telepon</dt><dd><a href="tel:+620000000000">[Nomor telepon kantor]</a></dd></div>
         <div><dt>WhatsApp</dt><dd><a href="https://wa.me/620000000000" data-wa-link>[Nomor WhatsApp kantor]</a></dd></div>
         <div><dt>Email</dt><dd><a href="mailto:email@contoh.com">[Email kantor]</a></dd></div>
       </dl>
 
       <table class="hours-table" data-hours-table>
-        <caption>Jam kantor</caption>
+        <caption data-i18n="off.hours">Jam kantor</caption>
         <tbody></tbody>
       </table>
-      <p class="holiday-note">Tutup pada hari libur nasional.</p>
+      <p class="holiday-note" data-i18n="off.holiday">Tutup pada hari libur nasional.</p>
     </div>
   </div>
 </section>
 
 <!-- ============ TANYA JAWAB ============ -->
 <section class="section" id="tanya-jawab">
-  <div class="wrap faq-wrap">
+  <div class="wrap">
     <header class="section-head">
-      <h2>Tanya jawab</h2>
+      <h2 data-i18n="faq.title">Tanya jawab</h2>
     </header>
     <div class="faq">
       <details>
-        <summary>Apakah saya harus membuat janji terlebih dahulu?</summary>
-        <p>Kami menyarankan demikian, agar Notaris/PPAT dapat menyediakan waktu dan kami dapat memeriksa jenis dokumen yang perlu Anda bawa.</p>
+        <summary data-i18n="faq.q1">Apakah saya harus membuat janji terlebih dahulu?</summary>
+        <p data-i18n="faq.a1">Kami menyarankan demikian, agar Notaris/PPAT dapat menyediakan waktu dan kami dapat memeriksa jenis dokumen yang perlu Anda bawa.</p>
       </details>
       <details>
-        <summary>Berapa biaya pembuatan akta?</summary>
-        <p>Honorarium Notaris mengikuti ketentuan Undang-Undang Jabatan Notaris, sedangkan honorarium PPAT mengikuti ketentuan peraturan pertanahan yang berlaku. Rinciannya, termasuk pajak dan biaya resmi lainnya, kami sampaikan saat konsultasi sebelum akta dibuat.</p>
+        <summary data-i18n="faq.q2">Berapa biaya pembuatan akta?</summary>
+        <p data-i18n="faq.a2">Honorarium Notaris mengikuti ketentuan Undang-Undang Jabatan Notaris, sedangkan honorarium PPAT mengikuti ketentuan peraturan pertanahan yang berlaku. Rinciannya, termasuk pajak dan biaya resmi lainnya, kami sampaikan saat konsultasi sebelum akta dibuat.</p>
       </details>
       <details>
-        <summary>Apakah penandatanganan akta dapat diwakilkan?</summary>
-        <p>Pada dasarnya akta ditandatangani oleh para pihak sendiri di hadapan Notaris atau PPAT. Bila salah satu pihak berhalangan, sampaikan saat konsultasi agar kami dapat menjelaskan kemungkinan penggunaan kuasa sesuai ketentuan.</p>
+        <summary data-i18n="faq.q3">Apakah penandatanganan akta dapat diwakilkan?</summary>
+        <p data-i18n="faq.a3">Pada dasarnya akta ditandatangani oleh para pihak sendiri di hadapan Notaris atau PPAT. Bila salah satu pihak berhalangan, sampaikan saat konsultasi agar kami dapat menjelaskan kemungkinan penggunaan kuasa sesuai ketentuan.</p>
       </details>
       <details>
-        <summary>Berapa lama proses pembuatan akta?</summary>
-        <p>Tergantung jenis akta dan kelengkapan dokumen. Akta yang memerlukan pendaftaran ke instansi lain, seperti kantor pertanahan, memerlukan waktu tambahan. Perkiraan waktunya kami sampaikan saat konsultasi.</p>
+        <summary data-i18n="faq.q4">Berapa lama proses pembuatan akta?</summary>
+        <p data-i18n="faq.a4">Tergantung jenis akta dan kelengkapan dokumen. Akta yang memerlukan pendaftaran ke instansi lain, seperti kantor pertanahan, memerlukan waktu tambahan. Perkiraan waktunya kami sampaikan saat konsultasi.</p>
       </details>
       <details>
-        <summary>Apa yang perlu dibawa saat konsultasi pertama?</summary>
-        <p>Kartu identitas (KTP) dan dokumen yang berkaitan dengan keperluan Anda. Lihat bagian <a href="#persyaratan">Persyaratan dokumen</a> untuk daftar umumnya.</p>
+        <summary data-i18n="faq.q5">Apa yang perlu dibawa saat konsultasi pertama?</summary>
+        <p data-i18n="faq.a5">Kartu identitas (KTP) dan dokumen yang berkaitan dengan keperluan Anda. Lihat bagian <a href="#persyaratan">Persyaratan dokumen</a> untuk daftar umumnya.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.q6">Apakah kantor melayani klien warga negara asing?</summary>
+        <p data-i18n="faq.a6">Ya. Akta dibuat dalam bahasa Indonesia. Bila salah satu pihak tidak memahami bahasa Indonesia, akta diterjemahkan dan dijelaskan, dan dapat menggunakan penerjemah sesuai ketentuan. Sampaikan hal ini saat membuat janji temu.</p>
       </details>
     </div>
   </div>
@@ -279,69 +296,67 @@
 <section class="section section-tint" id="janji">
   <div class="wrap book-grid">
     <div class="book-intro">
-      <h2>Buat janji temu</h2>
-      <p>Isi formulir ini, lalu pesan Anda akan terbuka di WhatsApp untuk dikirim ke kantor. Kami akan membalas untuk mengonfirmasi jadwal kedatangan.</p>
+      <h2 data-i18n="book.title">Buat janji temu</h2>
+      <p data-i18n="book.intro">Isi formulir ini, lalu pesan Anda akan terbuka di WhatsApp untuk dikirim ke kantor. Kami akan membalas untuk mengonfirmasi jadwal kedatangan.</p>
       <ul class="book-points">
-        <li>Konfirmasi jadwal pada hari kerja</li>
-        <li>Pilihan jam mengikuti jam kantor</li>
-        <li>Data Anda hanya digunakan untuk keperluan janji temu</li>
+        <li data-i18n="book.p1">Konfirmasi jadwal pada hari kerja</li>
+        <li data-i18n="book.p2">Pilihan jam mengikuti jam kantor</li>
+        <li data-i18n="book.p3">Data Anda hanya digunakan untuk keperluan janji temu</li>
       </ul>
     </div>
 
     <form class="book-form" novalidate data-book-form>
       <div class="field">
-        <label for="f-name">Nama lengkap</label>
+        <label for="f-name" data-i18n="f.name">Nama lengkap</label>
         <input id="f-name" name="name" type="text" autocomplete="name" required>
-        <p class="error">Isi nama lengkap Anda.</p>
+        <p class="error" data-i18n="f.nameErr">Isi nama lengkap Anda.</p>
       </div>
       <div class="field-row">
         <div class="field">
-          <label for="f-phone">Nomor WhatsApp</label>
+          <label for="f-phone" data-i18n="f.phone">Nomor WhatsApp</label>
           <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="08xxxxxxxxxx" required>
-          <p class="error">Isi nomor WhatsApp yang dapat kami hubungi.</p>
+          <p class="error" data-i18n="f.phoneErr">Isi nomor WhatsApp yang dapat kami hubungi.</p>
         </div>
         <div class="field">
-          <label for="f-email">Email <span class="optional">(opsional)</span></label>
+          <label for="f-email"><span data-i18n="f.email">Email</span> <span class="optional" data-i18n="f.opt">(opsional)</span></label>
           <input id="f-email" name="email" type="email" autocomplete="email">
-          <p class="error">Format email belum lengkap, contoh: nama@email.com.</p>
+          <p class="error" data-i18n="f.emailErr">Format email belum lengkap, contoh: nama@email.com.</p>
         </div>
       </div>
       <div class="field">
-        <label for="f-need">Keperluan</label>
+        <label for="f-need" data-i18n="f.need">Keperluan</label>
         <select id="f-need" name="need">
-          <option>Pendirian PT / CV / yayasan</option>
-          <option>Perubahan anggaran dasar</option>
-          <option>Jual beli tanah (AJB)</option>
-          <option>Hibah</option>
-          <option>Pembagian waris (APHB)</option>
-          <option>Hak tanggungan / kredit</option>
-          <option>Perjanjian</option>
-          <option>Fidusia</option>
-          <option>Legalisasi / waarmerking</option>
-          <option>Wasiat / kuasa / pernyataan</option>
-          <option>Lainnya</option>
+          <option value="Pendirian PT / CV / yayasan" data-i18n="o1">Pendirian PT / CV / yayasan</option>
+          <option value="Perubahan anggaran dasar" data-i18n="o2">Perubahan anggaran dasar</option>
+          <option value="Jual beli tanah (AJB)" data-i18n="o3">Jual beli tanah (AJB)</option>
+          <option value="Hibah" data-i18n="o4">Hibah</option>
+          <option value="Pembagian waris (APHB)" data-i18n="o5">Pembagian waris (APHB)</option>
+          <option value="Hak tanggungan / kredit" data-i18n="o6">Hak tanggungan / kredit</option>
+          <option value="Perjanjian" data-i18n="o7">Perjanjian</option>
+          <option value="Fidusia" data-i18n="o8">Fidusia</option>
+          <option value="Legalisasi / waarmerking" data-i18n="o9">Legalisasi / waarmerking</option>
+          <option value="Wasiat / kuasa / pernyataan" data-i18n="o10">Wasiat / kuasa / pernyataan</option>
+          <option value="Lainnya" data-i18n="o11">Lainnya</option>
         </select>
       </div>
       <div class="field-row">
         <div class="field">
-          <label for="f-date">Tanggal kedatangan</label>
+          <label for="f-date" data-i18n="f.date">Tanggal kedatangan</label>
           <input id="f-date" name="date" type="date" required>
-          <p class="error" data-date-error>Pilih tanggal pada hari kerja kantor.</p>
+          <p class="error" data-date-error></p>
         </div>
         <div class="field">
-          <label for="f-time">Jam</label>
-          <select id="f-time" name="time" required disabled>
-            <option value="">Pilih tanggal dulu</option>
-          </select>
-          <p class="error">Pilih jam kedatangan.</p>
+          <label for="f-time" data-i18n="f.time">Jam</label>
+          <select id="f-time" name="time" required disabled></select>
+          <p class="error" data-i18n="f.timeErr">Pilih jam kedatangan.</p>
         </div>
       </div>
       <div class="field">
-        <label for="f-notes">Keterangan singkat <span class="optional">(opsional)</span></label>
-        <textarea id="f-notes" name="notes" rows="3" placeholder="Contoh: jual beli rumah, sertipikat atas nama orang tua."></textarea>
+        <label for="f-notes"><span data-i18n="f.notes">Keterangan singkat</span> <span class="optional" data-i18n="f.opt">(opsional)</span></label>
+        <textarea id="f-notes" name="notes" rows="3" placeholder="Contoh: jual beli rumah, sertipikat atas nama orang tua." data-i18n-placeholder="f.notesPh"></textarea>
       </div>
-      <button class="btn btn-primary btn-lg" type="submit">Kirim lewat WhatsApp</button>
-      <p class="form-success" role="status" hidden>Pesan Anda sudah disiapkan di WhatsApp. Tekan kirim di WhatsApp agar permintaan janji temu sampai ke kantor.</p>
+      <button class="btn btn-primary btn-lg" type="submit" data-i18n="f.submit">Kirim lewat WhatsApp</button>
+      <p class="form-success" role="status" hidden data-i18n="f.success">Pesan Anda sudah disiapkan di WhatsApp. Tekan kirim di WhatsApp agar permintaan janji temu sampai ke kantor.</p>
     </form>
   </div>
 </section>
@@ -351,12 +366,13 @@
 <!-- ============ FOOTER ============ -->
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <p class="footer-name">Notaris &amp; PPAT Cosmas Dimas Darmoyo Danisworo, S.H., M.Kn.</p>
+    <p class="footer-name"><span data-i18n="brand">Notaris &amp; PPAT</span> Cosmas Dimas Darmoyo Danisworo, S.H., M.Kn.</p>
     <p>[Alamat lengkap kantor], [Kota]</p>
     <p>© <span data-year></span></p>
   </div>
 </footer>
 
+<script src="assets/js/lang.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>
