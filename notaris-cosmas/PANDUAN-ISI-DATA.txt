@@ -1,0 +1,38 @@
+PANDUAN MENGISI DATA WEBSITE
+Notaris & PPAT Cosmas Dimas Darmoyo Danisworo, S.H., M.Kn.
+=====================================================
+
+Semua teks yang masih bertanda [ ... ] perlu diganti dengan data asli.
+Buka file dengan Notepad / VS Code, lalu gunakan Cari & Ganti (Ctrl+H).
+
+1. index.html
+   [Kota/Kabupaten]               → kedudukan / wilayah kerja (muncul di beberapa tempat)
+   [KOTA]                         → nama kota di tengah cap (huruf besar, singkat)
+   [Nomor SK Menteri Hukum]       → nomor SK pengangkatan Notaris
+   [Nomor SK Menteri ATR/Kepala BPN] → nomor SK pengangkatan PPAT
+   [Alamat lengkap kantor]        → alamat kantor (muncul juga di footer)
+   [Kota], [Kode pos]             → kota dan kode pos
+   [Nomor telepon kantor]         → nomor yang ditampilkan
+     dan tel:+620000000000        → nomor yang sama, format +62xxxxxxxxxx
+   [Nomor WhatsApp kantor]        → nomor WhatsApp yang ditampilkan
+   [Email kantor]
+     dan mailto:email@contoh.com  → alamat email kantor
+
+2. assets/js/main.js (bagian PENGATURAN di paling atas)
+   OFFICE_WA        → nomor WhatsApp kantor, format 62xxxxxxxxxx
+                      (tanpa + dan tanpa 0 di depan). Formulir janji temu
+                      dikirim ke nomor ini.
+   OFFICE_HOURS     → jam kantor per hari (null = tutup)
+   TIMEZONE_LABEL   → "WIB", "WITA", atau "WIT" sesuai lokasi kantor
+   SLOT_MINUTES     → jarak pilihan jam janji temu (default 30 menit)
+
+3. Periksa isi bersama Bapak Cosmas sebelum dipublikasikan
+   - Daftar layanan dan persyaratan dokumen bersifat umum; sesuaikan
+     dengan praktik kantor.
+   - Website sengaja tidak memuat harga, testimoni, atau klaim promosi,
+     mengikuti batasan Kode Etik Notaris. Mohon Bapak Cosmas memastikan
+     isi akhir sudah sesuai dengan ketentuan organisasi.
+
+4. Publikasi
+   Unggah index.html dan folder assets ke hosting (GitHub Pages, Netlify,
+   atau hosting biasa). File PANDUAN ini tidak perlu diunggah.

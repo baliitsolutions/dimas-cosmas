@@ -1,0 +1,216 @@
+/* ==========================================================
+   Notaris & PPAT Cosmas Dimas Darmoyo Danisworo, S.H., M.Kn.
+   Warna dan font dapat diubah dari variabel :root di bawah.
+   ========================================================== */
+
+:root {
+  --ink: #16213a;        /* judul, bagian gelap */
+  --ink-soft: #2a3858;
+  --paper: #f7f8fa;      /* latar halaman */
+  --tint: #e9edf4;       /* bagian berwarna lembut */
+  --stamp: #4b45a1;      /* warna cap, tombol utama */
+  --stamp-deep: #3a3584;
+  --brass: #a8834a;      /* aksen tipis */
+  --text: #1d2433;
+  --muted: #545e72;
+  --line: #d9dee8;
+  --danger: #b3261e;
+
+  --font-display: "Newsreader", Georgia, serif;
+  --font-body: "Public Sans", system-ui, sans-serif;
+
+  --wrap: 1160px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --radius: 14px;
+  --section-space: clamp(64px, 9vw, 112px);
+}
+
+/* ---------- Dasar ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body { margin: 0; background: var(--paper); color: var(--text); font: 400 1.0625rem/1.65 var(--font-body); -webkit-font-smoothing: antialiased; }
+img, svg { display: block; max-width: 100%; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; color: var(--ink); line-height: 1.12; margin: 0 0 .5em; }
+h1 { font-size: clamp(2.3rem, 5vw, 4rem); letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.9rem, 3.6vw, 2.75rem); letter-spacing: -0.01em; }
+h3 { font-size: 1.3rem; }
+p { margin: 0 0 1em; }
+a { color: var(--stamp); text-underline-offset: 3px; }
+:focus-visible { outline: 3px solid var(--stamp); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip-link { position: absolute; left: -999px; top: 8px; background: var(--ink); color: #fff; padding: 8px 14px; z-index: 100; border-radius: 6px; }
+.skip-link:focus { left: 8px; }
+.lead { font-size: clamp(1.1rem, 1.5vw, 1.25rem); color: var(--muted); max-width: 34em; }
+
+/* ---------- Tombol ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: .75em 1.3em; border-radius: 8px; border: 2px solid transparent; font: 600 1rem/1.2 var(--font-body); text-decoration: none; cursor: pointer; transition: background-color .15s, border-color .15s; }
+.btn-lg { padding: .9em 1.5em; font-size: 1.0625rem; }
+.btn-primary { background: var(--stamp); color: #fff; }
+.btn-primary:hover { background: var(--stamp-deep); }
+.btn-ghost { border-color: var(--ink); color: var(--ink); background: transparent; }
+.btn-ghost:hover { background: var(--tint); }
+
+/* ---------- Header ---------- */
+.site-header { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--paper) 93%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; min-height: 74px; gap: 20px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); font: 600 1.15rem/1.15 var(--font-display); }
+.brand small { display: block; font: 400 .78rem/1.3 var(--font-body); color: var(--muted); margin-top: 2px; }
+.brand-mark { width: 38px; height: 38px; color: var(--stamp); flex: none; }
+.site-nav { display: flex; align-items: center; gap: 26px; }
+.site-nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+.site-nav ul a { text-decoration: none; font-weight: 600; color: var(--text); }
+.site-nav ul a:hover { color: var(--stamp); text-decoration: underline; }
+.nav-toggle { display: none; background: none; border: 0; width: 44px; height: 44px; cursor: pointer; }
+.bars, .bars::before, .bars::after { display: block; width: 24px; height: 2px; background: var(--ink); margin: 0 auto; position: relative; transition: transform .2s; }
+.bars::before, .bars::after { content: ""; position: absolute; left: 0; }
+.bars::before { top: -7px; }
+.bars::after { top: 7px; }
+.nav-toggle[aria-expanded="true"] .bars { background: transparent; }
+.nav-toggle[aria-expanded="true"] .bars::before { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .bars::after { transform: translateY(-7px) rotate(-45deg); }
+
+/* ---------- Hero ---------- */
+.hero { padding: clamp(56px, 7vw, 100px) 0 clamp(64px, 8vw, 110px); overflow: hidden; border-bottom: 1px solid var(--line); }
+.hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+.role { font-weight: 600; color: var(--stamp); margin-bottom: 14px; }
+.hero h1 { max-width: 13em; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+
+/* The signature element: an inked notarial seal pressed onto the page */
+.hero-seal { position: relative; display: flex; flex-direction: column; align-items: center; }
+.seal { width: min(100%, 330px); color: var(--stamp); opacity: .92; transform: rotate(-8deg); animation: press .9s cubic-bezier(.2, .8, .2, 1) .15s both; }
+.seal-ring { font: 600 15px/1 var(--font-body); fill: currentColor; letter-spacing: .02em; }
+.seal-mid { font: 600 30px/1 var(--font-display); fill: currentColor; letter-spacing: .08em; }
+.seal-city { font: 600 12px/1 var(--font-body); fill: currentColor; letter-spacing: .14em; }
+@keyframes press {
+  0%   { transform: rotate(-8deg) scale(1.25); opacity: 0; }
+  60%  { transform: rotate(-8deg) scale(.97); opacity: .95; }
+  100% { transform: rotate(-8deg) scale(1); opacity: .92; }
+}
+.hours-card { position: relative; z-index: 1; margin-top: -18px; align-self: flex-end; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 18px; min-width: 230px; box-shadow: 0 12px 30px -16px rgba(22, 33, 58, .4); }
+.hours-card p { margin: 0 0 4px; }
+.hours-card a { font-size: .9rem; font-weight: 600; }
+.status { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--ink); }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--muted); }
+.is-open .dot { background: #2f9e6f; box-shadow: 0 0 0 4px rgba(47, 158, 111, .2); }
+.hours-line { color: var(--muted); font-size: .95rem; }
+
+/* ---------- Bagian ---------- */
+.section { padding: var(--section-space) 0; }
+.section-tint { background: var(--tint); }
+.section-ink { background: var(--ink); color: #c9d1e2; }
+.section-ink h2 { color: #fff; }
+.section-head { max-width: 40em; margin-bottom: clamp(28px, 4vw, 48px); }
+.section-head p { color: var(--muted); font-size: 1.1rem; }
+
+/* Layanan: two registers, like an index of deeds */
+.services { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); }
+.service-group h3 { padding-bottom: 12px; border-bottom: 2px solid var(--ink); margin-bottom: 0; }
+.service-group ul { list-style: none; margin: 0; padding: 0; }
+.service-group li { padding: 16px 0; border-bottom: 1px solid var(--line); }
+.service-group li strong { display: block; color: var(--ink); }
+.service-group li span { color: var(--muted); font-size: .98rem; }
+
+/* Persyaratan */
+.req { background: #fff; border-radius: var(--radius); border: 1px solid var(--line); overflow: hidden; }
+.req-tabs { display: flex; overflow-x: auto; border-bottom: 1px solid var(--line); }
+.req-tabs button { flex: 1 0 auto; border: 0; background: transparent; padding: 18px 20px; font: 600 .98rem/1.2 var(--font-body); color: var(--muted); cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; }
+.req-tabs button:hover { color: var(--ink); }
+.req-tabs button[aria-selected="true"] { color: var(--stamp); border-bottom-color: var(--stamp); }
+.req-panel { padding: clamp(20px, 3vw, 32px); }
+.checklist { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 36px; }
+.checklist li { position: relative; padding: 10px 0 10px 32px; border-bottom: 1px solid var(--line); }
+.checklist li::before { content: ""; position: absolute; left: 0; top: 13px; width: 18px; height: 18px; border: 2px solid var(--stamp); border-radius: 4px; }
+.checklist li::after { content: ""; position: absolute; left: 6px; top: 16px; width: 6px; height: 10px; border: solid var(--stamp); border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); }
+.req-note { margin: 0; padding: 16px clamp(20px, 3vw, 32px); background: var(--paper); color: var(--muted); font-size: .95rem; border-top: 1px solid var(--line); }
+
+/* Alur: genuine sequence */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(20px, 3vw, 32px); counter-reset: step; }
+.steps li { counter-increment: step; position: relative; padding-top: 62px; }
+.steps li::before { content: counter(step); position: absolute; top: 0; left: 0; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; border: 2px solid var(--stamp); color: var(--stamp); font: 600 1.35rem/1 var(--font-display); background: var(--paper); }
+.steps li:not(:last-child)::after { content: ""; position: absolute; top: 23px; left: 58px; right: -10px; border-top: 1px solid var(--line); }
+.steps h3 { font-size: 1.2rem; }
+.steps p { color: var(--muted); margin: 0; font-size: .98rem; }
+
+/* Profil & kantor */
+.office-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 80px); }
+.credentials, .contact { margin: 0; display: grid; gap: 0; }
+.credentials div, .contact div { display: grid; grid-template-columns: 11em 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, .12); }
+.credentials dt, .contact dt { color: #9aa6c0; }
+.credentials dd, .contact dd { margin: 0; color: #fff; }
+.contact a { color: #fff; }
+.hours-table { width: 100%; border-collapse: collapse; margin-top: 28px; }
+.hours-table caption { text-align: left; font: 600 1.2rem/1.3 var(--font-display); color: #fff; margin-bottom: 6px; }
+.hours-table th, .hours-table td { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, .12); text-align: left; font-weight: 400; }
+.hours-table td { text-align: right; }
+.hours-table tr.today th, .hours-table tr.today td { color: #fff; font-weight: 700; }
+.holiday-note { margin: 10px 0 0; font-size: .92rem; color: #9aa6c0; }
+
+/* Tanya jawab */
+.faq { max-width: 860px; }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq details:first-child { border-top: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; padding: 20px 44px 20px 0; position: relative; font: 600 1.2rem/1.35 var(--font-display); color: var(--ink); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font: 400 1.6rem/1 var(--font-body); transition: transform .2s; }
+.faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+.faq details p { color: var(--muted); padding-bottom: 20px; margin: 0; max-width: 44em; }
+
+/* Janji temu */
+.book-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(32px, 6vw, 80px); align-items: start; }
+.book-intro p { color: var(--muted); }
+.book-points { list-style: none; padding: 0; margin: 24px 0 0; }
+.book-points li { padding: 10px 0 10px 28px; border-bottom: 1px solid var(--line); position: relative; }
+.book-points li::before { content: ""; position: absolute; left: 2px; top: 18px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--stamp); }
+.book-form { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(22px, 4vw, 40px); display: grid; gap: 18px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.field { display: grid; gap: 6px; align-content: start; }
+.field label { font-weight: 600; color: var(--ink); }
+.optional { font-weight: 400; color: var(--muted); }
+input, select, textarea { font: inherit; color: var(--text); width: 100%; padding: 11px 13px; border: 1.5px solid var(--line); border-radius: 8px; background: var(--paper); }
+select:disabled { color: var(--muted); }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--stamp); box-shadow: 0 0 0 3px color-mix(in srgb, var(--stamp) 18%, transparent); }
+.field.invalid input, .field.invalid select { border-color: var(--danger); }
+.error { display: none; margin: 0; color: var(--danger); font-size: .9rem; }
+.field.invalid .error { display: block; }
+.book-form .btn { justify-self: start; }
+.form-success { margin: 0; padding: 14px 16px; border-radius: 8px; background: var(--tint); color: var(--ink); font-weight: 600; }
+
+/* Footer */
+.site-footer { background: var(--ink); color: #9aa6c0; padding: 32px 0; border-top: 1px solid rgba(255, 255, 255, .1); }
+.footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: .95rem; }
+.footer-inner p { margin: 0; }
+.footer-name { color: #fff; font-weight: 600; }
+
+/* ---------- Responsif ---------- */
+@media (max-width: 1040px) {
+  .nav-toggle { display: block; }
+  .site-nav { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 16px; background: var(--paper); border-bottom: 1px solid var(--line); padding: 16px var(--gutter) 24px; display: none; }
+  .site-nav.open { display: flex; }
+  .site-nav ul { flex-direction: column; gap: 0; }
+  .site-nav ul a { display: block; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .steps li:nth-child(2)::after { display: none; }
+}
+@media (max-width: 860px) {
+  .hero-grid, .services, .office-grid, .book-grid { grid-template-columns: 1fr; }
+  .hero-seal { max-width: 380px; width: 100%; margin: 0 auto; }
+  .checklist { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .brand small { font-size: .7rem; }
+  .brand { font-size: 1.02rem; }
+  .steps { grid-template-columns: 1fr; }
+  .steps li::after { display: none; }
+  .field-row { grid-template-columns: 1fr; }
+  .credentials div, .contact div { grid-template-columns: 1fr; gap: 2px; }
+  .hero-actions .btn { width: 100%; }
+  .seal { width: 250px; }
+  .hours-card { align-self: center; width: max-content; min-width: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
